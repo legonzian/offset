@@ -1,0 +1,37 @@
+<div class="accordion" [attr.id]="'entry-' + entry.id">
+    <div class="accordion-item">
+        <h2 class="accordion-header" [attr.id]="'heading' + entry.id">
+            <button class="accordion-button collapsed" type="button" [attr.data-bs-toggle]="'collapse'"
+                [attr.data-bs-target]="'#collapse' + entry.id" [attr.aria-expanded]="false"
+                [attr.aria-controls]="'collapse' + entry.id">
+                {{entry.title}}
+            </button>
+        </h2>
+        <div class="accordion-collapse collapse" [attr.id]="'collapse' + entry.id" [attr.aria-labeledby]="'heading' + entry.id"
+            [attr.data-bs-parent]="'#entry-' + entry.id">
+            <div class="accordion-body">
+                <table class="table table-responsive">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Listenpreis</th>
+                            <td>{{entry.uvp | number : '1.2-2'}} €</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Einkaufspreis</th>
+                            <td>{{entry.uvp | number : '1.2-2'}} €</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Einkauspreis (inkl. MwSt.)</th>
+                            <td>{{entry.uvp * 1.19 | number : '1.2-2'}} €</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">inkl. Aufschlag</th>
+                            <td>{{entry.uvp * 1.19 * 1.2 | number : '1.2-2'}} €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

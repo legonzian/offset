@@ -1,0 +1,17 @@
+<div *ngIf="entries$ | async as entries" class="row">
+    <div class="col-12">
+        <h1>Crafter VW <small>16.08.2012</small></h1>
+    </div>
+
+    <div class="col-12">
+        <ng-container *ngFor="let entry of entries">
+            <offset-entry [entry]="entry"></offset-entry>
+        </ng-container>
+    </div>
+
+    <div class="col-12">
+        <ng-container *ngIf="totalsEntry$ | async as entry">
+            <offset-entry [entry]="entry"></offset-entry>
+        </ng-container>
+    </div>
+</div>
